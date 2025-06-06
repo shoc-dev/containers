@@ -1,0 +1,9 @@
+services:
+  mpi:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/mpi:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./mpi
+    container_name: mpi
+  openmpi:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./openmpi
+    container_name: openmpi

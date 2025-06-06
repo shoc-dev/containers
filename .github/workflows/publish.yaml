@@ -29,6 +29,7 @@ jobs:
       SHOC_CONTAINERS_CR: ghcr.io
       SHOC_CONTAINERS_REPO: shoc-dev/containers/library
       SHOC_CONTAINERS_VERSION: ${{ inputs.version }}
+      SHOC_SERVICE_NAME: ${{ inputs.service }}
 
     steps:
       - name: Checkout repository
@@ -49,7 +50,7 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
-            --tag ${SHOC_CONTAINERS_CR}/${SHOC_CONTAINERS_REPO}/${{ inputs.service }}:${{ inputs.version }} \
+            --tag ${SHOC_CONTAINERS_CR}/${SHOC_CONTAINERS_REPO}/$SHOC_SERVICE_NAME:$SHOC_CONTAINERS_VERSION \
             --push \
             ${inputs.service}
             

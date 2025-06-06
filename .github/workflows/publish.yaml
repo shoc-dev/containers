@@ -36,9 +36,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build the image using compose
+        working-directory: ./library
         run: |
           docker compose build ${{ inputs.service }}
 
       - name: Push the image with compose
+        working-directory: ./library
         run: |
           docker compose push ${{ inputs.service }}

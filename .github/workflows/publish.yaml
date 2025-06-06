@@ -24,7 +24,7 @@ jobs:
       packages: write
       attestations: write
       id-token: write
-      
+
     env:
       SHOC_CONTAINERS_CR: ghcr.io
       SHOC_CONTAINERS_REPO: shoc-dev/containers/library
@@ -41,12 +41,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the image using compose
-        working-directory: ./library
-        run: |
-          docker compose build ${{ inputs.service }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
-      - name: Push the image with compose
+      - name: Build and push multi-arch image
         working-directory: ./library
         run: |
-          docker compose push ${{ inputs.service }}
+          docker buildx build \
+            --platform linux/amd64,linux/arm64 \
+            --tag ${SHOC_CONTAINERS_CR}/${SHOC_CONTAINERS_REPO}/${{ inputs.service }}:${{ inputs.version }} \
+            --push \
+            ${inputs.service}
+            

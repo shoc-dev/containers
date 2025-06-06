@@ -52,5 +52,5 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             --tag ${SHOC_CONTAINERS_CR}/${SHOC_CONTAINERS_REPO}/$SHOC_SERVICE_NAME:$SHOC_CONTAINERS_VERSION \
             --push \
-            ${inputs.service}
+            ./$SHOC_SERVICE_NAME
             

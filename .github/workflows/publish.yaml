@@ -19,6 +19,12 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+      
     env:
       SHOC_CONTAINERS_CR: ghcr.io
       SHOC_CONTAINERS_REPO: shoc-dev/containers/library

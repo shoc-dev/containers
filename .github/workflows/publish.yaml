@@ -21,7 +21,7 @@ jobs:
 
     env:
       SHOC_CONTAINERS_CR: ghcr.io
-      SHOC_CONTAINERS_REPO: shoc/dev/containers/library
+      SHOC_CONTAINERS_REPO: shoc-dev/containers/library
       SHOC_CONTAINERS_VERSION: ${{ inputs.version }}
 
     steps:

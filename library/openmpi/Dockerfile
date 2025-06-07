@@ -5,8 +5,6 @@ ARG SHOC_MPI_IMAGE_TAG=latest
 FROM ghcr.io/shoc-dev/containers/library/mpi:${SHOC_MPI_IMAGE_TAG}
 
 # Install OpenMPI package
-RUN apt update \
-    && apt install -y --no-install-recommends openmpi-bin \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache openmpi
 
 ENTRYPOINT ["sleep", "infinity"]

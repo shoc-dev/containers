@@ -1,16 +1,12 @@
 # The implementation is based on MPI base images used in mpi-operator
 # More details are available here: https://github.com/kubeflow/mpi-operator/tree/master/build/base
-FROM debian:trixie-slim
+FROM alpine:latest
 
 # Define sshd port argument with default value
 ARG SHOC_MPI_SSHD_PORT=2222
 
 # Install openssh (client and server) and libcap to manage capabilities
-RUN apt update && apt install -y --no-install-recommends \
-    openssh-server \
-    openssh-client \
-    libcap2-bin \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache openssh libcap-setcap
     
 # Add priviledge separation directoy to run sshd as root.
 RUN mkdir -p /var/run/sshd
@@ -32,7 +28,7 @@ RUN echo "Port $SHOC_MPI_SSHD_PORT" >> /etc/templates/.sshd_config
 RUN setcap CAP_NET_BIND_SERVICE=+eip /usr/sbin/sshd
 
 # Cleanup
-RUN apt remove libcap2-bin -y
+RUN apk del libcap-setcap
 
 # Allow OpenSSH to talk to containers without asking for confirmation
 # by disabling StrictHostKeyChecking.
@@ -44,3 +40,5 @@ RUN sed -i "s/[ #]\(.*StrictHostKeyChecking \).*/ \1no/g" /etc/ssh/ssh_config \
     && sed -i "s/[ #]\(.*Port \).*/ \1$SHOC_MPI_SSHD_PORT/g" /etc/ssh/ssh_config \
     && sed -i "s/#\(StrictModes \).*/\1no/g" /etc/ssh/sshd_config \
     && sed -i "s/#\(Port \).*/\1$SHOC_MPI_SSHD_PORT/g" /etc/ssh/sshd_config
+
+ENTRYPOINT [ "sleep", "infinity" ]

@@ -5,8 +5,8 @@ FROM alpine:latest
 # Define sshd port argument with default value
 ARG SHOC_MPI_SSHD_PORT=2222
 
-# Install openssh (client and server) and libcap to manage capabilities
-RUN apk add --no-cache openssh libcap-setcap
+# Install openssh (client and server), bash, bind-tools (nslookup) and libcap to manage capabilities
+RUN apk add --no-cache openssh bash bind-tools libcap-setcap
     
 # Add priviledge separation directoy to run sshd as root.
 RUN mkdir -p /var/run/sshd

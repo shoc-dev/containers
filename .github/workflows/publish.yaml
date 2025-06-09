@@ -10,6 +10,7 @@ on:
         options:
           - mpi
           - openmpi
+          - openmpi-builder
       version:
         description: 'Image version tag'
         required: false

@@ -11,6 +11,7 @@ on:
           - mpi
           - openmpi
           - openmpi-builder
+          - lammps-openmpi
       version:
         description: 'Image version tag'
         required: false

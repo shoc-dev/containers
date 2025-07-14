@@ -18,4 +18,9 @@ services:
     image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/lammps-openmpi:${SHOC_CONTAINERS_VERSION:-latest}
     build: ./lammps-openmpi
     container_name: lammps-openmpi
+  
+  gromacs-openmpi:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/gromacs-openmpi:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./gromacs-openmpi
+    container_name: gromacs-openmpi
 

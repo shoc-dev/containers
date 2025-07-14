@@ -4,15 +4,30 @@ services:
     build: ./mpi
     container_name: mpi
 
+  mpi-ubuntu:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/mpi-ubuntu:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./mpi-ubuntu
+    container_name: mpi-ubuntu
+
   openmpi:
     image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi:${SHOC_CONTAINERS_VERSION:-latest}
     build: ./openmpi
     container_name: openmpi
 
+  openmpi-ubuntu:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi-ubuntu:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./openmpi-ubuntu
+    container_name: openmpi-ubuntu
+
   openmpi-builder:
     image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi-builder:${SHOC_CONTAINERS_VERSION:-latest}
     build: ./openmpi-builder
     container_name: openmpi-builder
+
+  openmpi-ubuntu-builder:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi-ubuntu-builder:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./openmpi-ubuntu-builder
+    container_name: openmpi-ubuntu-builder
 
   lammps-openmpi:
     image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/lammps-openmpi:${SHOC_CONTAINERS_VERSION:-latest}

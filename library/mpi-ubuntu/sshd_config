@@ -1,0 +1,3 @@
+PidFile /home/{SHOC_USER_NAME}/sshd.pid
+HostKey /home/{SHOC_USER_NAME}/.ssh/id_rsa
+StrictModes no

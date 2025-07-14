@@ -1,0 +1,5 @@
+services:
+  openmpi-ubuntu-test:
+    image: openmpi-ubuntu-test
+    build: ./openmpi-ubuntu-test
+    container_name: openmpi-ubuntu-test

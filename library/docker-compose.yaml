@@ -24,10 +24,10 @@ services:
     build: ./openmpi-builder
     container_name: openmpi-builder
 
-  openmpi-ubuntu-builder:
-    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi-ubuntu-builder:${SHOC_CONTAINERS_VERSION:-latest}
-    build: ./openmpi-ubuntu-builder
-    container_name: openmpi-ubuntu-builder
+  openmpi-builder-ubuntu:
+    image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/openmpi-builder-ubuntu:${SHOC_CONTAINERS_VERSION:-latest}
+    build: ./openmpi-builder-ubuntu
+    container_name: openmpi-builder-ubuntu
 
   lammps-openmpi:
     image: ${SHOC_CONTAINERS_CR:-ghcr.io}/${SHOC_CONTAINERS_REPO:-shoc-dev/containers/library}/lammps-openmpi:${SHOC_CONTAINERS_VERSION:-latest}

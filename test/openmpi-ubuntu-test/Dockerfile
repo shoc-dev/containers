@@ -1,4 +1,4 @@
-FROM ghcr.io/shoc-dev/containers/library/openmpi-ubuntu-builder
+FROM ghcr.io/shoc-dev/containers/library/openmpi-builder-ubuntu
 
 ENV SHOC_UID=1000
 ENV SHOC_USER=shoc

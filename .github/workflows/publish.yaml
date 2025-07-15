@@ -12,7 +12,7 @@ on:
           - mpi-ubuntu
           - openmpi
           - openmpi-ubuntu
-          - openmpi-ubuntu-builder
+          - openmpi-builder-ubuntu
           - openmpi-builder
           - lammps-openmpi
       version:

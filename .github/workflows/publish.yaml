@@ -9,7 +9,10 @@ on:
         type: choice
         options:
           - mpi
+          - mpi-ubuntu
           - openmpi
+          - openmpi-ubuntu
+          - openmpi-ubuntu-builder
           - openmpi-builder
           - lammps-openmpi
       version:
